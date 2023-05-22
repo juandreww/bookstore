@@ -1,0 +1,21 @@
+<h1>List of Products</h1>
+
+<h3>Products per page: <%= @products.count %> / <%= Product.count %></h3>
+
+<%= link_to "New product", new_product_path %>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
