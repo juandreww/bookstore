@@ -46,12 +46,10 @@ end
 
 class Book
   def weekday_price
-    return 2000
     raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}"
   end
 
   def weekend_price
-    return 3000
     raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}"
   end
 end
@@ -96,5 +94,5 @@ payment_method = PaymentMethodOVO.new(book)
 weekend_payment_instruction(payment_method)
 
 book = Book.new
-payment_method = PaymentMethodCOD.new(book)
-weekday_payment_instruction(book)
+payment_method = PaymentMethodOVO.new(book)
+weekday_payment_instruction(payment_method)
