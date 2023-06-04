@@ -4,7 +4,7 @@ class PaymentMethodCOD
   end
 
   def calculate_weekday_sale_amount
-    @book.weekend_price
+    @book.weekday_price
   end
 
   def calculate_weekend_sale_amount
@@ -14,7 +14,7 @@ end
 
 class PaymentMethodOVO < PaymentMethodCOD
   def calculate_weekday_sale_amount
-    @book.weekend_price + platform_fee
+    @book.weekday_price + platform_fee
   end
 
   def calculate_weekend_sale_amount
@@ -30,7 +30,7 @@ end
 
 class PaymentMethodGopay < PaymentMethodCOD
   def calculate_weekday_sale_amount
-    @book.weekend_price + platform_fee
+    @book.weekday_price + platform_fee
   end
 
   def calculate_weekend_sale_amount
@@ -46,10 +46,12 @@ end
 
 class Book
   def weekday_price
+    return 2000
     raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}"
   end
 
   def weekend_price
+    return 3000
     raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}"
   end
 end
@@ -74,6 +76,9 @@ class FictionBook < Book
   end
 end
 
+class HealthBook < Book
+end
+
 def weekday_payment_instruction(payment_method)
   puts "Please pay #{payment_method.calculate_weekday_sale_amount} rupiah for this book."
 end
@@ -89,3 +94,7 @@ weekday_payment_instruction(payment_method)
 book = FictionBook.new
 payment_method = PaymentMethodOVO.new(book)
 weekend_payment_instruction(payment_method)
+
+book = Book.new
+payment_method = PaymentMethodCOD.new(book)
+weekday_payment_instruction(book)
