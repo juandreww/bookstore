@@ -94,5 +94,5 @@ payment_method = PaymentMethodOVO.new(book)
 weekend_payment_instruction(payment_method)
 
 book = Book.new
-payment_method = PaymentMethodOVO.new(book)
+payment_method = PaymentMethodCOD.new(book)
 weekday_payment_instruction(payment_method)
