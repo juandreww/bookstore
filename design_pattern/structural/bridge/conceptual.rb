@@ -35,14 +35,14 @@ class ConcreteImplementationB < Implementation
 end
 
 def client_code(abstraction)
-  print abstraction.operation
+  puts abstraction.operation
 end
 
 implementation = ConcreteImplementationA.new
 abstraction = Abstraction.new(implementation)
 client_code(abstraction)
 
-puts "\n\n"
+puts "\n"
 
 implementation = ConcreteImplementationB.new
 abstraction = Abstraction.new(implementation)
