@@ -4,14 +4,14 @@ class Abstraction
   end
 
   def operation
-    "Abstrraction: Base operation with:\n"
+    "Abstraction: Base operation with:\n"\
     "#{@implementation.operation_implementation}"
   end
 end
 
 class ExtendedAbstraction < Abstraction
   def operation
-    "ExtendedAbstraction: Extended operation with:\n"
+    "ExtendedAbstraction: Extended operation with:\n"\
     "#{@implementation.operation_implementation}"
   end
 end
@@ -45,5 +45,5 @@ client_code(abstraction)
 puts "\n"
 
 implementation = ConcreteImplementationB.new
-abstraction = Abstraction.new(implementation)
+abstraction = ExtendedAbstraction.new(implementation)
 client_code(abstraction)
