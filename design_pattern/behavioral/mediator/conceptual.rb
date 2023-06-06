@@ -12,7 +12,7 @@ class ConcreteMediator < Mediator
     @component2.mediator = self
   end
 
-  def notify(_sender, _event)
+  def notify(_sender, event)
     if event == 'A'
       puts 'Mediator reacts on A and triggers following operations:'
       @component2.do_c
