@@ -38,7 +38,6 @@ class Button
   end
 
   def click
-    puts @click_handler
     @click_handler.call if @click_handler
   end
 end
