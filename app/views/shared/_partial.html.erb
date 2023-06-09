@@ -1,4 +1,7 @@
 <div class="my-partial">
-  <h2>Partial Content</h2>
-  <p><%= message %></p>
+  <% if klass == 'Books' %>
+    <h2>Partial Content</h2>
+    <p><%= message %></p>
+    <p><%= second_message %></p>
+  <% end %>
 </div>
