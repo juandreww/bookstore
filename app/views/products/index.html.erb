@@ -1,7 +1,6 @@
-<%= products_count_information = "Products per page: #{@products.count} / #{Product.count}" %>
 <%= render partial: 'shared/mediator', locals: { klass: 'Products',
                                                  list_of_klass: 'List of Products',
-                                                 products_count_information: products_count_information } %>
+                                                 products_count_information: "Products per page: #{@products.count} / #{Product.count}" } %>
 
 <%= link_to "New product", new_product_path %>
 <br>
