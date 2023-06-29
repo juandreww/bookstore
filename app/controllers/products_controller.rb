@@ -13,8 +13,8 @@ class ProductsController < ApplicationController
   end
 
   def create_food
-    byebug
-    @food = Food.new(product_params)
+    @food = Product::Models::Food.new(product_params)
+    @food.save!
   end
 
   private

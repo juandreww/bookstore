@@ -7,5 +7,11 @@ RSpec.describe 'products', type: :request do
         post '/products', params: { format: 'json', product: { name: 'Pisang Goreng' } }
       end
     end
+
+    context 'when creating a food product' do
+      it 'returns success' do
+        post '/products/create_food', params: { format: 'json', product: { name: 'Pisang Goreng' } }
+      end
+    end
   end
 end
