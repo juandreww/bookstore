@@ -9,11 +9,13 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.name_prefix
     @product.save!
   end
 
   def create_food
     @food = Product::Models::Food.new(product_params)
+    @food.name_prefix
     @food.save!
   end
 
