@@ -1,5 +1,4 @@
 class Product::Models::Food < ::Product
-
   validate :name_has_prefix
 
   def name_prefix
@@ -7,8 +6,8 @@ class Product::Models::Food < ::Product
   end
 
   def name_has_prefix
-    if self.name.exclude?('FoodModelz')
-      raise Error
-    end
+    return unless name.exclude?('FoodModelz')
+
+    raise Error
   end
 end

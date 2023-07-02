@@ -6,9 +6,7 @@ class Creator
   def some_operation
     product = factory_method
 
-    result = "Creator: The same creator's code has just worked with #{product.operation}"
-
-    result
+    "Creator: The same creator's code has just worked with #{product.operation}"
   end
 end
 

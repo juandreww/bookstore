@@ -15,10 +15,10 @@ class LoginMediator
     password = @password_input.value
 
     # Perform authentication logic here
-    if username == "admin" && password == "password"
-      puts "Login successful!"
+    if username == 'admin' && password == 'password'
+      puts 'Login successful!'
     else
-      puts "Invalid credentials!"
+      puts 'Invalid credentials!'
     end
   end
 end
@@ -28,7 +28,7 @@ class TextInput
   attr_accessor :value
 
   def initialize
-    @value = ""
+    @value = ''
   end
 end
 
@@ -51,6 +51,6 @@ mediator = LoginMediator.new(username_input, password_input, login_button)
 mediator.setup
 
 # Simulating user interaction
-username_input.value = "admin"
-password_input.value = "password"
+username_input.value = 'admin'
+password_input.value = 'password'
 login_button.click

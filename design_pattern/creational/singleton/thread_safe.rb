@@ -12,7 +12,7 @@ class Singleton
   def self.instance(value)
     return @instance if @instance
 
-    puts "Have to create new ?"
+    puts 'Have to create new ?'
     @instance_mutex.synchronize do
       @instance ||= new(value)
     end
@@ -20,9 +20,7 @@ class Singleton
     @instance
   end
 
-  def some_business_logic
-
-  end
+  def some_business_logic; end
 end
 
 def test_singleton(value)
@@ -31,8 +29,8 @@ def test_singleton(value)
 end
 
 puts "If you see the same value, then singleton was reused (yay!)\n"
-     "If you see different values, then 2 singletons were created (booo!!)\n\n"
-     "RESULT:\n\n"
+"If you see different values, then 2 singletons were created (booo!!)\n\n"
+"RESULT:\n\n"
 
 process1 = Thread.new { test_singleton('FOO') }
 process2 = Thread.new { test_singleton('BAR') }

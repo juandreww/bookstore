@@ -3,8 +3,8 @@ class Singleton
 
   private_class_method :new
 
-  def self.instance
-    @instance
+  class << self
+    attr_reader :instance
   end
 
   def some_business_logic

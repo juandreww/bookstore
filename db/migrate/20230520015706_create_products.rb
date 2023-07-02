@@ -1,8 +1,9 @@
 class CreateProducts < ActiveRecord::Migration[7.0]
-  def change
-    create_table :products do |t|
-      t.string :name
-      t.timestamps
-    end
-  end
+  # deprecated 02.07.2023 - has been changed
+  # def change
+  #   create_table :products do |t|
+  #     t.string :name
+  #     t.timestamps
+  #   end
+  # end
 end
