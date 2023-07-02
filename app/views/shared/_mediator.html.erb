@@ -1,9 +1,9 @@
 <div class="my-partial">
   <h1><%= list_of_klass %></h1>
 
-  <% if klass == 'Books' %>
-    <h3><%= list_of_klass_description %></h3>
-  <% elsif klass == 'Products' %>
+  <% if klass == 'Products' %>
     <h3><%= products_count_information %></h3>
+  <% else %>
+    <h3><%= list_of_klass_description %></h3>
   <% end %>
 </div>
