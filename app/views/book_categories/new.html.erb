@@ -2,8 +2,6 @@
   <br>
   <h1>New Book Category</h1>
 
-  <%= render partial: 'shared/error_messages', locals: { object: @category } %>
-
   <div class="field">
     <%= form.label :name %><br>
     <%= form.text_field :name, required: true %>
@@ -13,12 +11,14 @@
     <%= form.label :ordering %><br>
     <%= form.select :ordering, BookCategory.orderings.keys, :selected => 'normal', required: true %>
   </div>
-  <br>
+  <%= render partial: 'shared/error_messages', locals: { object: @category } %>
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
-
+<script>
+    toastr.success('Ya! it worked')
+  </script>
 <br>
 
 <div>
