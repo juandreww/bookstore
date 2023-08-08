@@ -1,12 +1,10 @@
 <div class="my-partial">
+  <br>
   <% if object.errors.any? %>
     <div style="color: red">
-      <br>
-      <ul>
       <% object.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
     </div>
   <% end %>
 </div>

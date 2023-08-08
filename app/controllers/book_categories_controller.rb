@@ -8,12 +8,11 @@ class BookCategoriesController < ApplicationController
   end
 
   def create
-    byebug
     @category = BookCategory.new(create_params)
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to product_url(@category), notice: "Product was successfully created." }
+        format.html { redirect_to product_url(@category), flash: { notice: "Product was successfully created." } }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +36,6 @@ class BookCategoriesController < ApplicationController
   private
 
   def create_params
-    params.permit(:book_categories)
-          .require(:name, :ordering)
+    params[:book_category].permit(:name, :ordering)
   end
 end
