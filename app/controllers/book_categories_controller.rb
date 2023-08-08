@@ -4,9 +4,22 @@ class BookCategoriesController < ApplicationController
   end
 
   def new
+    @category = BookCategory.new
   end
 
   def create
+    byebug
+    @category = BookCategory.new(create_params)
+
+    respond_to do |format|
+      if @category.save
+        format.html { redirect_to product_url(@category), notice: "Product was successfully created." }
+        format.json { render :show, status: :created, location: @product }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show
@@ -19,5 +32,12 @@ class BookCategoriesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def create_params
+    params.permit(:book_categories)
+          .require(:name, :ordering)
   end
 end

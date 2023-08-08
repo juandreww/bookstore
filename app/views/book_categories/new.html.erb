@@ -1,0 +1,26 @@
+<%= form_with(model: @category) do |form| %>
+  <br>
+  <h1>New Book Category</h1>
+
+  <%= render partial: 'shared/error_messages', locals: { object: @category } %>
+
+  <div class="field">
+    <%= form.label :name %><br>
+    <%= form.text_field :name, required: true %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :ordering %><br>
+    <%= form.select :ordering, BookCategory.orderings.keys, :selected => 'normal', required: true %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to list categories", book_categories_path %>
+</div>
