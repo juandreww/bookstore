@@ -1,30 +1,40 @@
-<%= render partial: 'shared/mediator', locals: { klass: 'BookCategories',
-                                                 list_of_klass: 'Hello Admin TheBook',
-                                                 list_of_klass_description: 'Enjoy your concentrated work' } %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Categories</title>
+  <!-- Include your CSS stylesheets here -->
+</head>
+<body>
+  <div class="container">
+    <%= render partial: 'shared/mediator', locals: { klass: 'BookCategories',
+                                                   list_of_klass: 'Hello Admin TheBook',
+                                                   list_of_klass_description: 'Enjoy your concentrated work' } %>
 
-<%= link_to "New book category", new_book_category_path %>
+    <%= link_to "New Book Category", new_book_category_path, class: 'button' %>
 
-<br>
-<table class="table" style="width: 45%">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Ordering</th>
-      <th colspan="3" style="width: 10%"></th>
-    </tr>
-  </thead>
+    <table class="category-table", style="width:80%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Ordering</th>
+          <th colspan="3" class="actions-column">Actions</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.ordering %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.name %></td>
+            <td><%= category.ordering %></td>
+            <td><%= link_to 'Show', category, class: 'action-link show-link' %></td>
+            <td><%= link_to 'Edit', edit_book_category_path(category), class: 'action-link edit-link' %></td>
+            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link destroy-link' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<h6>Item per page: <%= @categories.count %> / <%= BookCategory.count %></h6>
+    <p class="item-count">Items per page: <%= @categories.count %> / <%= BookCategory.count %></p>
+  </div>
+</body>
+</html>

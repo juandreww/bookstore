@@ -12,7 +12,7 @@ class BookCategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to product_url(@category), flash: { notice: "Product was successfully created." } }
+        format.html { redirect_to book_categories_url(@category), flash: { notice: "Product was successfully created." } }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
