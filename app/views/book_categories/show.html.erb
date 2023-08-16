@@ -1,0 +1,25 @@
+<div class="container">
+  <%= form_with(model: @category) do |form| %>
+    <br>
+    <h1>Book Category</h1>
+    <br>
+    <div class="field">
+      <strong><%= form.label :name, 'Name:' %></strong><br>
+      <%= form.text_field :name, required: true, disabled: true %>
+    </div>
+    <br>
+    <div class="field">
+      <strong><%= form.label :ordering, 'Ordering:' %></strong><br>
+      <%= form.text_field :ordering, disabled: true %>
+    </div>
+    <br>
+  <% end %>
+
+  <br>
+
+  <div>
+    <%= link_to "Edit this book category", edit_book_category_path(@category) %> |
+    <%= link_to "Back to book categories", book_categories_path %>
+  </div>
+</div>
+
