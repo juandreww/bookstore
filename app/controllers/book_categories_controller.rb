@@ -1,6 +1,6 @@
 class BookCategoriesController < ApplicationController
   def index
-    @categories = BookCategory.all
+    @categories = BookCategory.all.order(ordering: :desc, name: :asc)
   end
 
   def new
